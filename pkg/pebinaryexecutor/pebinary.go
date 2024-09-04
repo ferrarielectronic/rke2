@@ -125,6 +125,7 @@ func (p *PEBinaryConfig) Bootstrap(ctx context.Context, nodeConfig *config.Node,
 		p.CNIPlugin = &win.Flannel{}
 	case CNINone:
 		logrus.Info("Skipping CNI setup")
+		return nil
 	default:
 		logrus.Fatal("Unsupported CNI: ", p.CNIName)
 	}
